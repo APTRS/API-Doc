@@ -32,21 +32,10 @@ jobs:
                --data @APTRS.postman_collection.json \
                --output OpenAPI.yml
 
-      # Step 4: Update servers section in the OpenAPI YAML
+      # Step 4: Update servers section using sed
       - name: Update Servers Section
         run: |
-          # Backup original OpenAPI.yml and replace the servers section
-          mv OpenAPI.yml OpenAPI-backup.yml
-          echo "
-servers:
-  - url: https://127.0.0.1
-    description: Local Hosted Server
-  - url: https://live.aptrs.com
-    description: APTRS Demo Server
-" > OpenAPI.yml
-
-          # Append the original OpenAPI data without the servers section
-          tail -n +6 OpenAPI-backup.yml >> OpenAPI.yml
+          sed -i 's|url: https://live.aptrs.com|&\n    description: Local Hosted Server \n  - url: https://live.aptrs.com\n    description: APTRS Demo Server|g' OpenAPI.yml
 
       # Step 5: Save OpenAPI.yml as an artifact
       - name: Upload OpenAPI Specification
