@@ -9,7 +9,7 @@ info:
     need for manual approaches. Additionally, APTRS offers a systematic way to
     monitor and manage vulnerabilities within various projects. Keep your
     penetration testing projects organized and efficient with APTRS.
-  version: 1.0.0
+  version: 1.0.1
   contact: {}
 servers:
   - url: https://live.aptrs.com
