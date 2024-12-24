@@ -6,7 +6,9 @@ on:
       - APTRS.postman_collection.json
     branches:
       - main
-  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate_openapi:
