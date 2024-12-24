@@ -23,7 +23,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y curl
 
-      # Step 3: Send Postman Collection to Postman-to-OpenAPI service
+      # Step 3: Fetch the version from the APTRS/APTRS repository
+      - name: Fetch Version from APTRS Repository
+        id: get_version
+        run: |
+          # Get the latest release tag from APTRS/APTRS repository
+          VERSION=$(curl --silent \
+            --header "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/APTRS/APTRS/releases/latest | \
+            jq -r .tag_name)
+
+          # Set the version as an environment variable for later use
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+
+      # Step 4: Send Postman Collection to Postman-to-OpenAPI service
       - name: Convert Postman Collection to OpenAPI
         run: |
           curl --request POST \
@@ -32,16 +45,21 @@ jobs:
                --data "$(cat APTRS.postman_collection.json)" \
                --output OpenAPI.yml
 
-      # Step 4: Update servers section using sed
+      # Step 5: Update the version in OpenAPI.yml
+      - name: Update Version in OpenAPI.yml
+        run: |
+          sed -i "s|version:.*|version: ${VERSION}|" OpenAPI.yml
+
+      # Step 6: Update servers section using sed
       - name: Update Servers Section
         run: |
           sed -i 's|url: https://live.aptrs.com|&\n    description: Local Hosted Server \n  - url: https://live.aptrs.com\n    description: APTRS Demo Server|g' OpenAPI.yml
 
-      # Step 5: Commit and push OpenAPI.yml to the repository
+      # Step 7: Commit and push OpenAPI.yml to the repository
       - name: Commit and Push OpenAPI.yml
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add OpenAPI.yml
-          git commit -m "Update OpenAPI.yml from Postman collection"
+          git commit -m "Update OpenAPI.yml with version ${VERSION} from APTRS repository"
           git push
