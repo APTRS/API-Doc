@@ -2,8 +2,6 @@ name: Generate OpenAPI Specification
 
 on:
   push:
-    paths:
-      - APTRS.postman_collection.json
     branches:
       - main
 
