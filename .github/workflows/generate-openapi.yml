@@ -37,9 +37,11 @@ jobs:
         run: |
           sed -i 's|url: https://live.aptrs.com|&\n    description: Local Hosted Server \n  - url: https://live.aptrs.com\n    description: APTRS Demo Server|g' OpenAPI.yml
 
-      # Step 5: Save OpenAPI.yml as an artifact
-      - name: Upload OpenAPI Specification
-        uses: actions/upload-artifact@v3
-        with:
-          name: OpenAPI.yml
-          path: OpenAPI.yml
+      # Step 5: Commit and push OpenAPI.yml to the repository
+      - name: Commit and Push OpenAPI.yml
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add OpenAPI.yml
+          git commit -m "Update OpenAPI.yml from Postman collection"
+          git push
