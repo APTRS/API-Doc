@@ -2769,12 +2769,17 @@
 		},
 		{
 			"key": "domainname",
-			"value": "https://aptrsapi.souravkalal.tech",
+			"value": "https://live.aptrs.com",
 			"type": "string"
 		},
 		{
 			"key": "refreshToken",
 			"value": ""
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }
