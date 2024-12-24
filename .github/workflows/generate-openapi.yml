@@ -1,0 +1,56 @@
+name: Generate OpenAPI Specification
+
+on:
+  push:
+    paths:
+      - APTRS.postman_collection.json
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate_openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install curl
+      - name: Install curl
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+
+      # Step 3: Send Postman Collection to Postman-to-OpenAPI service
+      - name: Convert Postman Collection to OpenAPI
+        run: |
+          curl --request POST \
+               --url https://demo.postmansolutions.com/postman2openapi \
+               --header "Content-Type: application/json" \
+               --data @APTRS.postman_collection.json \
+               --output OpenAPI.yml
+
+      # Step 4: Update servers section in the OpenAPI YAML
+      - name: Update Servers Section
+        run: |
+          # Backup original OpenAPI.yml and replace the servers section
+          mv OpenAPI.yml OpenAPI-backup.yml
+          echo "
+servers:
+  - url: https://127.0.0.1
+    description: Local Hosted Server
+  - url: https://live.aptrs.com
+    description: APTRS Demo Server
+" > OpenAPI.yml
+
+          # Append the original OpenAPI data without the servers section
+          tail -n +6 OpenAPI-backup.yml >> OpenAPI.yml
+
+      # Step 5: Save OpenAPI.yml as an artifact
+      - name: Upload OpenAPI Specification
+        uses: actions/upload-artifact@v3
+        with:
+          name: OpenAPI.yml
+          path: OpenAPI.yml
