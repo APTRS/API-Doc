@@ -32,9 +32,6 @@ jobs:
                --data "$(cat APTRS.postman_collection.json)" \
                --output OpenAPI.yml
 
-      # Step 4: Update servers section using sed
-      - name: Update Servers Section
-        run: |
           sed -i 's|url: https://live.aptrs.com|&\n    description: Local Hosted Server \n  - url: https://live.aptrs.com\n    description: APTRS Demo Server|g' OpenAPI.yml
 
       # Step 5: Commit and push OpenAPI.yml to the repository
