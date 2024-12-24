@@ -27,10 +27,10 @@ jobs:
       - name: Convert Postman Collection to OpenAPI
         run: |
           curl --request POST \
-         --url https://demo.postmansolutions.com/postman2openapi \
-         --header "Content-Type: application/json" \
-         --data "$(cat APTRS.postman_collection.json)" \
-         --output OpenAPI.yml
+               --url https://demo.postmansolutions.com/postman2openapi \
+               --header "Content-Type: application/json" \
+               --data "$(cat APTRS.postman_collection.json)" \
+               --output OpenAPI.yml
 
       # Step 4: Update servers section using sed
       - name: Update Servers Section
