@@ -1,0 +1,15 @@
+meta {
+  name: Fetch Project Type
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/config/project-type/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

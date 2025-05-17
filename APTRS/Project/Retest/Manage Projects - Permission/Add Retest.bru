@@ -1,0 +1,33 @@
+meta {
+  name: Add Retest
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/project/Retest/add
+  body: json
+  auth: bearer
+}
+
+headers {
+  ~host: 
+  ~x-csrftoken: 
+  ~accept-encoding: 
+  ~content-length: 
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "startdate": "2024-08-03",
+    "enddate": "2024-08-25",
+    "project": 2,
+    "owner": [
+      "Sourav.Kalal"
+    ]
+  }
+}

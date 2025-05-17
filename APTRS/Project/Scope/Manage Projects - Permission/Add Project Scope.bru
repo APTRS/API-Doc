@@ -1,0 +1,28 @@
+meta {
+  name: Add Project Scope
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/project/scope/add/1/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  [
+    {
+      "scope": "https://map.google.com",
+      "description": "Google MAp"
+    },
+    {
+      "scope": "google.com",
+      "description": "Google App"
+    }
+  ]
+}

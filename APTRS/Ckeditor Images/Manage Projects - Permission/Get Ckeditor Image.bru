@@ -1,0 +1,19 @@
+meta {
+  name: Get Ckeditor Image
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/project/getimage/?filename
+  body: none
+  auth: bearer
+}
+
+params:query {
+  filename: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

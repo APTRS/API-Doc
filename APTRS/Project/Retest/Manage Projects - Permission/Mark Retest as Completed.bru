@@ -1,0 +1,15 @@
+meta {
+  name: Mark Retest as Completed
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/project/retest/status/completed/1/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

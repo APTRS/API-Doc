@@ -1,0 +1,30 @@
+meta {
+  name: Get Project with Filters and Pagination
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/project/projects/filter?name&companyname&projecttype&testingtype&owner&status&startdate&enddate_before&limit&offset&order_by&sort
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  companyname: 
+  projecttype: 
+  testingtype: 
+  owner: 
+  status: 
+  startdate: 
+  enddate_before: 
+  limit: 
+  offset: 
+  order_by: 
+  sort: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

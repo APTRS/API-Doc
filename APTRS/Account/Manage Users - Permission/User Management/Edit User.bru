@@ -1,0 +1,31 @@
+meta {
+  name: Edit User
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/auth/edituser/73
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "full_name": "Sourav Kalal",
+    "username": "admin",
+    "email": "admin@anof.com",
+    "is_active": true,
+    "number": "+911122445522",
+    "is_superuser": false,
+    "position": "Security Engineer",
+    "password": "admin", // Optional
+    "groups": [
+      "User Level Group" // Multiple Groups can be selected
+    ]
+  }
+}

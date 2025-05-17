@@ -1,0 +1,19 @@
+meta {
+  name: Ckeditor Image Upload
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/project/ckeditor/imageupload/
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  upload: @file()
+}

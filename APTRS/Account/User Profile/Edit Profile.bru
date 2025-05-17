@@ -1,0 +1,22 @@
+meta {
+  name: Edit Profile
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/api/auth/editprofile
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  full_name: 
+  number: 
+  username: 
+  profilepic: @file()
+}

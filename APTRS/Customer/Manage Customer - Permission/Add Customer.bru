@@ -1,0 +1,26 @@
+meta {
+  name: Add Customer
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/customer/customer/add
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "full_name": "odison leo",
+    "email": "odison@owasp-test.com",
+    "number": "+911734566990", // Optional
+    "is_active": true,
+    "position": "CISO", // Optional text field
+    "company": "OWASP"
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Project Retest
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/project/Retest/2/
+  body: none
+  auth: bearer
+}
+
+headers {
+  ~host: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

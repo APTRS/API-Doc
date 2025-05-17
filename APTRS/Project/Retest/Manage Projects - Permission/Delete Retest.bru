@@ -1,0 +1,23 @@
+meta {
+  name: Delete Retest
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/api/project/Retest/delete/14/
+  body: none
+  auth: bearer
+}
+
+headers {
+  ~host: 
+  ~user-agent: 
+  ~postman-token: 
+  ~accept-encoding: 
+  ~connection: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

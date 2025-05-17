@@ -1,0 +1,15 @@
+meta {
+  name: My Projects - Deprecated API
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/project/my-projects/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

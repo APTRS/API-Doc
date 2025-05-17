@@ -1,0 +1,11 @@
+meta {
+  name: Validate Token
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/auth/token/validate/<str:token>/
+  body: none
+  auth: none
+}

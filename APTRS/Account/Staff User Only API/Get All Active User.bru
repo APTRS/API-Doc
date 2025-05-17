@@ -1,0 +1,15 @@
+meta {
+  name: Get All Active User
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/auth/users-active
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

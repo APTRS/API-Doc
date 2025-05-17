@@ -1,0 +1,22 @@
+meta {
+  name: Edit Project Scope
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/project/scope/edit/3/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "description": "",
+    "scope": ""
+  }
+}

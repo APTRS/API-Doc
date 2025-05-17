@@ -1,0 +1,23 @@
+meta {
+  name: All Company Filter and Pagination
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/customer/all-company/filter?name&limit&offset&order_by&sort
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: 
+  limit: 
+  offset: 
+  order_by: 
+  sort: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

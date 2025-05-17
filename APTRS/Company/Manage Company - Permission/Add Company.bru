@@ -1,0 +1,21 @@
+meta {
+  name: Add Company
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/customer/company/add
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  address: 
+  name: 
+  img: @file()
+}

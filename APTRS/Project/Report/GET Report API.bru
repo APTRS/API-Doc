@@ -1,0 +1,20 @@
+meta {
+  name: GET Report API
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/project/report/1/?Format=pdf&Type=Re-Audit
+  body: none
+  auth: bearer
+}
+
+params:query {
+  Format: pdf
+  Type: Re-Audit
+}
+
+auth:bearer {
+  token: {{token}}
+}

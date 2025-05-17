@@ -1,0 +1,26 @@
+meta {
+  name: Edit Permission Group
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/auth/groups/update/4/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+      "name": "Managers",
+      "description": "Permission for Managers",
+      "list_of_permissions": [
+          "Change Password",
+          "Create Project"
+      ]
+  }
+}

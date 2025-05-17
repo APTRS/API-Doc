@@ -1,0 +1,15 @@
+meta {
+  name: Last Ten Finding
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/customer/company/projects/last/findings
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

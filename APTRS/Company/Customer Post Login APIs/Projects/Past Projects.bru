@@ -1,0 +1,27 @@
+meta {
+  name: Past Projects
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/customer/company/projects/completed?limit&offset&sort&order_by&name&projecttype&testingtype&startdate&enddate_before
+  body: none
+  auth: bearer
+}
+
+params:query {
+  limit: 
+  offset: 
+  sort: 
+  order_by: 
+  name: 
+  projecttype: 
+  testingtype: 
+  startdate: 
+  enddate_before: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

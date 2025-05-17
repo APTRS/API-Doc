@@ -1,0 +1,15 @@
+meta {
+  name: Resend Invite
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/customer/token/invitation/resend/<int:user_id>/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,38 @@
+meta {
+  name: New Project
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/project/add-project/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Juice Shop2",
+    "description": "The project is about Juice Shop application security assessment. The project involves finding security vulnerabilities in the application",
+    "projecttype": "Web Application Penetration Testing",
+    "startdate": "2024-10-26",
+    "enddate": "2024-10-31",
+    "companyname": "APTRS PVT",
+    "testingtype": "Black Box",
+    "projectexception": "",
+    "owner": [
+      "Sourav.Kalal"
+    ], // only admin user can select owner
+    "standard": [
+      "OWASP TOP 10 2017",
+      "OWASP Mobile TOP 10 2024",
+      "OWASP TOP 10 2021",
+      "NIST SP 800-53",
+      "NIST SP 800-153"
+    ]
+  }
+}

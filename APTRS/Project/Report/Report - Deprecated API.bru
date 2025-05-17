@@ -1,0 +1,27 @@
+meta {
+  name: Report - Deprecated API
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/project/report/1/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "Format": "docx", //pdf,excel,docx
+    "Type": "Re-Audit",
+    "Standard": [
+      "OWASP Top 10 web",
+      "OWASP Top 10 API",
+      "NIST"
+    ]
+  }
+}

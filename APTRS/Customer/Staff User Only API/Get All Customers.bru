@@ -1,0 +1,15 @@
+meta {
+  name: Get All Customers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/customer/all-customer
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

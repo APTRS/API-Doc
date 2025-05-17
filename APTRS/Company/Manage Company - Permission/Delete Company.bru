@@ -1,0 +1,21 @@
+meta {
+  name: Delete Company
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{baseUrl}}/api/customer/company/delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  [
+    {}
+  ]
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get All User Filter
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/auth/users/filter?username&full_name&email&position&is_active&limit&offset&sort&order_by
+  body: none
+  auth: bearer
+}
+
+params:query {
+  username: 
+  full_name: 
+  email: 
+  position: 
+  is_active: 
+  limit: 
+  offset: 
+  sort: 
+  order_by: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

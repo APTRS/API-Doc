@@ -1,0 +1,24 @@
+meta {
+  name: Delete Project Scope
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{baseUrl}}/api/project/scope/delete/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  [
+    "1",
+    "2",
+    "3",
+    "4"
+  ]
+}

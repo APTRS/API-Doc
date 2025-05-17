@@ -1,0 +1,15 @@
+meta {
+  name: List All Permission Group
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/auth/groups/list/
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

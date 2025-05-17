@@ -1,0 +1,22 @@
+meta {
+  name: Delete Images - Deprecated API
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{baseUrl}}/api/project/ckeditor/delete-images/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  [
+    "/media/uploads/ParaForge.png",
+    "/media/uploads/ParaForge_kJvGvXr.png"
+  ]
+}

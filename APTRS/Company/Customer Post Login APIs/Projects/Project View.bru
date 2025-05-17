@@ -1,0 +1,15 @@
+meta {
+  name: Project View
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/customer/company/projects/details
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

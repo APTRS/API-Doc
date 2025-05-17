@@ -1,0 +1,26 @@
+meta {
+  name: Create Permission Group
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/auth/groups/create/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Manager Groups",
+    "description": "Permission for Managers",
+    "list_of_permissions": [ //multiple permissions can be selected
+      "Change Password",
+      "Create Project"
+    ]
+  }
+}

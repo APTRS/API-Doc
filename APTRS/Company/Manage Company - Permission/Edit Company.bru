@@ -1,0 +1,21 @@
+meta {
+  name: Edit Company
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/customer/company/edit/1/
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  address: 
+  name: 
+  img: @file()
+}

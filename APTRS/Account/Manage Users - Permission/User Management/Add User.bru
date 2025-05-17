@@ -1,0 +1,31 @@
+meta {
+  name: Add User
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/auth/adduser
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "full_name": "normal user",
+    "username": "normaluser",
+    "email": "normaluser@anof.com",
+    "is_active": false,
+    "number": "+911622445522",
+    "is_superuser": false,
+    "position": "Security Engineer", // text field
+    "password": "Admin@12345",
+    "groups": [
+      "Manangers" // Multiple Groups can be selected
+    ]
+  }
+}

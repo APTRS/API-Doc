@@ -1,0 +1,23 @@
+meta {
+  name: Delete Group
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{baseUrl}}/api/auth/groups/delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  [
+      10,
+      11,
+      12
+  ]
+}

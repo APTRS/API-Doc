@@ -1,0 +1,26 @@
+meta {
+  name: Edit Customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/customer/customer/edit/13/
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "full_name": "Jame Lee",
+    "email": "jaes@owasp-test.com",
+    "number": "+911734566991", // optional
+    "is_active": true,
+    "position": "CISO", // Optional text field
+    "company": "OWASP" /// Not Editable
+  }
+}
